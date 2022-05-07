@@ -12,3 +12,52 @@ body {
 .App {
   text-align: center;
 }
+
+.productList {
+  margin-top: 50px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 5rem;
+  grid-row-gap: 5rem;
+  max-width: 1170px;
+  width: 90vw;
+}
+
+.product {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ede9fe;
+}
+
+.productImg img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.product-description {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 6px 15px;
+  background-color: #ede9fe;
+  color: #6d28d9;
+  border-radius: 5px;
+}
+
+.primary {
+  background-color: #6d28d9;
+  color: #fff;
+}
