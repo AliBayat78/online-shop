@@ -61,3 +61,7 @@ body {
   background-color: #6d28d9;
   color: #fff;
 }
+
+a {
+  text-decoration: none;
+}

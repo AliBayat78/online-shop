@@ -1,0 +1,22 @@
+.error {
+  color: red;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-control {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: 800;
+}
