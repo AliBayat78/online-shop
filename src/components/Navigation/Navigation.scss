@@ -12,7 +12,12 @@
       height: 100%;
       align-items: center;
       justify-content: center;
+      .cartLink {
+        position: relative;
+      }
       li {
+        display: flex;
+        align-items: center;
         margin: 0 1rem;
         a {
           display: block;
@@ -24,6 +29,20 @@
         .activeLink {
           color: #6d28d9;
           background-color: #fff;
+        }
+        span {
+          position: absolute;
+          right: -9px;
+          top: -7px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #6d28d9;
+          color: #fff;
+          font-size: 14px;
         }
       }
     }

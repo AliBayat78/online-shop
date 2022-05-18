@@ -43,3 +43,37 @@
   justify-content: center;
   margin-top: 50px;
 }
+
+.summeryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.net {
+  border-top: 1px solid #ccc;
+  padding-top: 3px;
+}
+
+.btnGroup button {
+  outline: none;
+  color: #6d28d9;
+  border: 1px solid #6d28d9;
+  padding: 5px 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.btnGroup button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.btnGroup button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.btnGroup button:nth-child(2) {
+  border-left: 0;
+  border-right: 0;
+}

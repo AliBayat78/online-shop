@@ -1,9 +1,18 @@
+import { NavLink } from 'react-router-dom'
 import Layout from '../common/Layout/Layout'
-import { useCart } from '../Context/CartProvider'
+import { useCart, useCartActions } from '../Context/CartProvider'
 import './cartPage.css'
 
 const CartPage = () => {
-  const { cart } = useCart()
+  const { cart, total } = useCart()
+  const dispatch = useCartActions()
+
+  const incrementHandler = (cartItem) => {
+    dispatch({ type: 'ADD_TO_CART', payload: cartItem })
+  }
+  const removeHandler = (cartItem) => {
+    dispatch({ type: 'REMOVE_PRODUCT', payload: cartItem })
+  }
 
   if (!cart.length)
     return (
@@ -17,7 +26,7 @@ const CartPage = () => {
   return (
     <Layout>
       <main className="container">
-        <section className='cartCenter'>
+        <section className="cartCenter">
           <section className="cartItemList">
             {cart.map((item) => {
               return (
@@ -26,17 +35,17 @@ const CartPage = () => {
                     <img src={item.image} alt={item.name}></img>
                   </div>
                   <div>{item.name}</div>
-                  <div>{item.price * item.quantity}</div>
-                  <div>
-                    <button>remove</button>
+                  <div>{item.offPrice * item.quantity}</div>
+                  <div className="btnGroup">
+                    <button onClick={() => removeHandler(item)}>remove</button>
                     <button>{item.quantity}</button>
-                    <button>Add</button>
+                    <button onClick={() => incrementHandler(item)}>Add</button>
                   </div>
                 </div>
               )
             })}
           </section>
-          <section className="cartSummary">cart summary</section>
+          <CartSummery cart={cart} total={total} />
         </section>
       </main>
     </Layout>
@@ -44,3 +53,34 @@ const CartPage = () => {
 }
 
 export default CartPage
+
+const CartSummery = ({ total, cart }) => {
+  const originalTotalPrice = cart.length
+    ? cart.reduce((acc, curr) => {
+        return acc + curr.quantity * curr.price
+      }, 0)
+    : 0
+
+  return (
+    <section className="cartSummary">
+      <h2 style={{ marginBottom: '30px' }}>Cart Summary</h2>
+      <div className="summeryItem">
+        <p>original total price</p>
+        <p>{originalTotalPrice}$</p>
+      </div>
+      <div className="summeryItem">
+        <p>cart discount</p>
+        <p>{originalTotalPrice - total} $</p>
+      </div>
+      <div className="summeryItem net">
+        <p>net price</p>
+        <p> {total} $</p>
+      </div>
+      <NavLink to="/checkout">
+        <button className="btn primary" style={{ marginTop: '15px' }}>
+          Go to checkout
+        </button>
+      </NavLink>
+    </section>
+  )
+}

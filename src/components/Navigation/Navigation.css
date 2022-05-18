@@ -30,7 +30,17 @@
           justify-content: center;
 }
 
+.mainNavigation nav ul .cartLink {
+  position: relative;
+}
+
 .mainNavigation nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 1rem;
 }
 
@@ -45,5 +55,26 @@
 .mainNavigation nav ul li .activeLink {
   color: #6d28d9;
   background-color: #fff;
+}
+
+.mainNavigation nav ul li span {
+  position: absolute;
+  right: -9px;
+  top: -7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #6d28d9;
+  color: #fff;
+  font-size: 14px;
 }
 /*# sourceMappingURL=Navigation.css.map */

@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import './Navigation.scss'
+import { useCart } from '../../Context/CartProvider'
 
 const Navigation = () => {
+  const { cart } = useCart()
   return (
     <header className="mainNavigation">
       <nav>
@@ -11,8 +13,9 @@ const Navigation = () => {
               Home
             </NavLink>
           </li>
-          <li>
+          <li className="cartLink">
             <NavLink to="/carts">Carts</NavLink>
+            <span>{cart.length}</span>
           </li>
         </ul>
       </nav>
