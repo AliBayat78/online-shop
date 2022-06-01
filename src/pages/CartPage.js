@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import Layout from '../common/Layout/Layout'
 import { useCart, useCartActions } from '../Context/CartProvider'
 import './cartPage.css'
@@ -76,7 +76,7 @@ const CartSummery = ({ total, cart }) => {
         <p>net price</p>
         <p> {total} $</p>
       </div>
-      <NavLink to="/checkout">
+      <NavLink to="/login?redirect=/checkout">
         <button className="btn primary" style={{ marginTop: '15px' }}>
           Go to checkout
         </button>
